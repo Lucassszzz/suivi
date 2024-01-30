@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi d'Équipement GMAO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suivi d'Équipement GMAO</h1>
+    <form id="locationForm">
+        <label for="equipmentName">Nom de l'équipement:</label>
+        <input type="text" id="equipmentName" name="equipmentName" required>
+        
+        <label for="location">Emplacement:</label>
+        <input type="text" id="location" name="location" required>
+        
+        <button type="submit">Mettre à jour l'emplacement</button>
+    </form>
+    <div id="currentLocation"></div>
+    <button onclick="getLocation()">Où est l'équipement ?</button>
+    <script>
+        document.getElementById('locationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const equipmentName = document.getElementById('equipmentName').value;
+            const location = document.getElementById('location').value;
+            
+            // Affiche l'emplacement actuel
+            document.getElementById('currentLocation').textContent = `L'équipement ${equipmentName} est actuellement situé à ${location}.`;
+            
+            // Ici, vous devriez ajouter le code pour envoyer les données à votre serveur
+            // et mettre à jour la base de données.
+        });
+
+        function getLocation() {
+            // Cette fonction devrait interroger le serveur pour l'emplacement actuel de l'équipement
+            // et mettre à jour le contenu de 'currentLocation'
+            alert("Cette fonctionnalité nécessite une implémentation côté serveur.");
+        }
+    </script>
+</body>
+</html>
